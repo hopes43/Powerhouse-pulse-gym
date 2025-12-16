@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Powerhouse Pulse Gym</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #0077ff; /* Bright blue */
+            --secondary: #0a0f1c; /* Dark blue-black */
+            --accent: #ffffff; /* White */
+            --light: #f5f7fa;
+            --dark: #0d1b2a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0a0f1c 0%, #1a2a3a 100%);
+            color: white;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: rgba(10, 15, 28, 0.95);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            color: var(--primary);
+            font-size: 2.5rem;
+        }
+        
+        .logo h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            left: 0;
+            bottom: 0;
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 15, 28, 0.9), rgba(10, 15, 28, 0.95)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: #cccccc;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: 2px solid var(--primary);
+        }
+        
+        .cta-button:hover {
+            background: transparent;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 119, 255, 0.3);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 4rem 0;
+        }
+        
+        section h2 {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: white;
+            font-size: 2.5rem;
+            position: relative;
+        }
+        
+        section h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Services Section */
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 119, 255, 0.2);
+            border-color: rgba(0, 119, 255, 0.3);
+        }
+        
+        .service-header {
+            background: rgba(0, 119, 255, 0.2);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 119, 255, 0.3);
+        }
+        
+        .service-header i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .service-header h3 {
+            font-size: 1.5rem;
+        }
+        
+        .service-body {
+            padding: 1.5rem;
+        }
+        
+        .service-body p {
+            color: #cccccc;
+        }
+        
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .schedule-table th, .schedule-table td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .schedule-table th {
+            background-color: rgba(0, 119, 255, 0.1);
+            font-weight: 700;
+            color: white;
+        }
+        
+        .schedule-table td {
+            color: #cccccc;
+        }
+        
+        /* Products Section */
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 119, 255, 0.2);
+            border-color: rgba(0, 119, 255, 0.3);
+        }
+        
+        .product-img {
+            height: 180px;
+            background-color: rgba(0, 119, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            overflow: hidden;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+        
+        .product-body {
+            padding: 1.5rem;
+        }
+        
+        .product-body h3 {
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        
+        .product-body p {
+            color: #cccccc;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .price {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+        
+        /* Add Item Form */
+        .add-item-form {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            margin: 3rem auto 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            font-size: 1rem;
+            color: white;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(0, 119, 255, 0.2);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #0056cc;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 119, 255, 0.3);
+        }
+        
+        .btn-add {
+            background: var(--primary);
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: #0a0f1c;
+            color: white;
+            padding: 3rem 0 1.5rem;
+            border-top: 1px solid rgba(0, 119, 255, 0.3);
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            color: var(--primary);
+        }
+        
+        .footer-column p {
+            color: #cccccc;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+            color: #cccccc;
+        }
+        
+        .footer-column ul li a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-column ul li i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            section h2 {
+                font-size: 2rem;
+            }
+            
+            .product-img {
+                height: 160px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .product-img {
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-dumbbell"></i>
+                <h1>Powerhouse <span>Pulse</span> Gym</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#supplements">Supplements</a></li>
+                    <li><a href="#merchandise">Merchandise</a></li>
+                    <li><a href="#add-item">Add Items</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Fuel Your Strength at Powerhouse Pulse</h2>
+            <p>Where fitness meets community. Join our state-of-the-art gym with expert trainers, diverse classes, and premium supplements to power your journey.</p>
+            <a href="#services" class="cta-button">Explore Our Services</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-container">
+                <!-- Aerobics Card -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <i class="fas fa-running"></i>
+                        <h3>Aerobics Classes</h3>
+                    </div>
+                    <div class="service-body">
+                        <p>High-energy group classes designed to improve cardiovascular health and burn calories. All fitness levels welcome!</p>
+                        <h4>Class Schedule:</h4>
+                        <table class="schedule-table">
+                            <thead>
+                                <tr>
+                                    <th>Day</th>
+                                    <th>Time</th>
+                                    <th>Instructor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Monday</td>
+                                    <td>6:00 AM & 6:00 PM</td>
+                                    <td>Shephard</td>
+                                </tr>
+                                <tr>
+                                    <td>Wednesday</td>
+                                    <td>6:00 AM & 6:00 PM</td>
+                                    <td>Shephard</td>
+                                </tr>
+                                <tr>
+                                    <td>Friday</td>
+                                    <td>6:00 AM & 7:00 PM</td>
+                                    <td>Shephard</td>
+                                </tr>
+                                <tr>
+                                    <td>Saturday</td>
+                                    <td>6:00 AM</td>
+                                    <td>Shephard</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Personal Training Card -->
+                <div class="service-card">
+                    <div class="service-header">
+                        <i class="fas fa-user-tie"></i>
+                        <h3>Packages</h3>
+                    </div>
+                    <div class="service-body">
+                        <p>One-on-one training sessions with certified professionals tailored to your fitness goals and needs.</p>
+                        <h4>Training Packages:</h4>
+                        <table class="schedule-table">
+                            <thead>
+                                <tr>
+                                    <th>Sessions</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Monthly Subscription</td>
+                                    <td>$30</td>
+                                </tr>
+                                <tr>
+                                    <td>Students</td>
+                                    <td>$20</td>
+                                </tr>
+                                <tr>
+                                    <td>2 Weeks</td>
+                                    <td>$15</td>
+                                </tr>
+                                <tr>
+                                    <td>1 Week</td>
+                                    <td>$10</td>
+                                </tr>
+                                <tr>
+                                    <td>Daily Sessions</td>
+                                    <td>$2</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supplements Section -->
+    <section id="supplements">
+        <div class="container">
+            <h2>Premium Supplements</h2>
+            <div class="products-container">
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Whey Protein">
+                    </div>
+                    <div class="product-body">
+                        <h3>Whey Protein</h3>
+                        <p>High-quality protein to support muscle recovery and growth.</p>
+                        <div class="price">$15</div>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://i.postimg.cc/ZRV80J87/c4.jpg" alt="Pre-Workout">
+                    </div>
+                    <div class="product-body">
+                        <h3>c4 Pre-Workout Energizer</h3>
+                        <p>Boost energy, focus, and performance during workouts.</p>
+                        <div class="price">$10</div>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="BCAA Powder">
+                    </div>
+                    <div class="product-body">
+                        <h3>BCAA Powder</h3>
+                        <p>Essential amino acids to reduce muscle fatigue and soreness.</p>
+                        <div class="price">$20</div>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://i.postimg.cc/0QcYr9YB/creatine.jpg" alt="Creatine">
+                    </div>
+                    <div class="product-body">
+                        <h3>Creatine 3 in 1</h3>
+                        <p>Increase strength, power, and muscle mass.</p>
+                        <div class="price">$15</div>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Merchandise Section -->
+    <section id="merchandise">
+        <div class="container">
+            <h2>Gym Merchandise</h2>
+            <div class="products-container">
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80" alt="Gym T-Shirt">
+                    </div>
+                    <div class="product-body">
+                        <h3>Powerhouse Pulse T-Shirt</h3>
+                        <p>Premium cotton gym shirt with our logo.</p>
+                        <div class="price">$15</div>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://i.postimg.cc/tJJhx8kD/gymshark.webp" alt="Shaker Bottle">
+                    </div>
+                    <div class="product-body">
+                        <h3>Shaker Bottle</h3>
+                        <p>High-quality shaker for your protein shakes.</p>
+                        <div class="price">$8</div>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1587654780298-8ded0b43d0c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Gym Towel">
+                    </div>
+                    <div class="product-body">
+                        <h3>Gym Towel</h3>
+                        <p>Quick-dry towel for your workouts.</p>
+                        <div class="price">$10</div>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://i.postimg.cc/VvvjC2g2/gloves.jpg" alt="Gym Gloves">
+                    </div>
+                    <div class="product-body">
+                        <h3>Gym Gloves</h3>
+                        <p>Hand Protection, grip effective.</p>
+                        <div class="price">$5</div>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add Item Form -->
+    <section id="add-item">
+        <div class="container">
+            <h2>Add New Item</h2>
+            <p style="text-align: center; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto; color: #cccccc;">Use this form to add new supplements or merchandise to our inventory. All fields are required.</p>
+            
+            <div class="add-item-form">
+                <form id="itemForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="itemName">Item Name</label>
+                            <input type="text" id="itemName" class="form-control" placeholder="e.g., Protein Bars" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="itemType">Item Type</label>
+                            <select id="itemType" class="form-control" required>
+                                <option value="">Select Type</option>
+                                <option value="supplement">Supplement</option>
+                                <option value="merchandise">Merchandise</option>
+                                <option value="service">Service</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="itemPrice">Price ($)</label>
+                            <input type="number" id="itemPrice" class="form-control" min="0" step="0.01" placeholder="e.g., 29.99" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="itemQuantity">Initial Quantity</label>
+                            <input type="number" id="itemQuantity" class="form-control" min="0" placeholder="e.g., 50" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="itemDescription">Description</label>
+                        <textarea id="itemDescription" class="form-control" rows="4" placeholder="Describe the item, its benefits, and any other relevant details..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="itemImage">Image URL (Optional)</label>
+                        <input type="url" id="itemImage" class="form-control" placeholder="https://example.com/image.jpg">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-add">Add New Item</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Powerhouse Pulse Gym</h3>
+                    <p>Your destination for fitness excellence. We provide top-tier equipment, expert trainers, and a supportive community to help you achieve your fitness goals.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 54 RG Mugabe Opposite ZESA</li>
+                        <li><i class="fas fa-phone"></i> +263 77 142 5983</li>
+                        <li><i class="fas fa-envelope"></i> info@powerhousepulse.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 6am-9pm, Sat: 6am-7pm</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#supplements">Supplements</a></li>
+                        <li><a href="#merchandise">Merchandise</a></li>
+                        <li><a href="#add-item">Add Items</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Powerhouse Pulse Gym. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handler
+        document.getElementById('itemForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const itemName = document.getElementById('itemName').value;
+            const itemType = document.getElementById('itemType').value;
+            const itemPrice = document.getElementById('itemPrice').value;
+            const itemQuantity = document.getElementById('itemQuantity').value;
+            const itemDescription = document.getElementById('itemDescription').value;
+            const itemImage = document.getElementById('itemImage').value;
+            
+            // Validate form
+            if (!itemName || !itemType || !itemPrice || !itemQuantity || !itemDescription) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Create a confirmation message
+            const typeText = {
+                'supplement': 'Supplement',
+                'merchandise': 'Merchandise',
+                'service': 'Service'
+            }[itemType] || 'Item';
+            
+            const message = `
+            New Item Added Successfully!
+            
+            Name: ${itemName}
+            Type: ${typeText}
+            Price: $${parseFloat(itemPrice).toFixed(2)}
+            Quantity: ${itemQuantity}
+            ${itemImage ? `Image URL: ${itemImage}` : ''}
+            
+            Description:
+            ${itemDescription}
+            
+            The item has been added to the inventory.
+            `;
+            
+            alert(message);
+            
+            // Reset form
+            document.getElementById('itemForm').reset();
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a, .cta-button').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if(this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add to cart functionality
+        document.querySelectorAll('.btn:not(.btn-add)').forEach(button => {
+            button.addEventListener('click', function() {
+                const productCard = this.closest('.product-card');
+                const productName = productCard.querySelector('h3').textContent;
+                const productPrice = productCard.querySelector('.price').textContent;
+                
+                alert(`Added to cart: ${productName} - ${productPrice}`);
+            });
+        });
+    </script>
+</body>
+</html>
