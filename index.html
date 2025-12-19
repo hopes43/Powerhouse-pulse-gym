@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="nhKWvlFdled8ZtkbeZ6hAamLVEZJulL2IL2787R3fVk" />
+      <meta name="google-site-verification" content="nhKWvlFdled8ZtkbeZ6hAamLVEZJulL2IL2787R3fVk" />
     <title>Powerhouse Pulse Gym</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -260,6 +260,8 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
         }
         
         .product-card:hover {
@@ -292,6 +294,9 @@
         
         .product-body {
             padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .product-body h3 {
@@ -303,6 +308,7 @@
             color: #cccccc;
             margin-bottom: 1rem;
             font-size: 0.95rem;
+            flex-grow: 1;
         }
         
         .price {
@@ -560,22 +566,22 @@
                             <tbody>
                                 <tr>
                                     <td>Monday</td>
-                                    <td>6:00 AM & 6:00 PM</td>
+                                    <td>7:00 AM & 5:30 PM</td>
                                     <td>Shephard</td>
                                 </tr>
                                 <tr>
                                     <td>Wednesday</td>
-                                    <td>6:00 AM & 6:00 PM</td>
+                                   <td>7:00 AM & 5:30 PM</td>
                                     <td>Shephard</td>
                                 </tr>
                                 <tr>
                                     <td>Friday</td>
-                                    <td>6:00 AM & 7:00 PM</td>
+                                    <td>7:00 AM & 5:30 PM</td>
                                     <td>Shephard</td>
                                 </tr>
                                 <tr>
                                     <td>Saturday</td>
-                                    <td>6:00 AM</td>
+                                    <td>Full Body</td>
                                     <td>Shephard</td>
                                 </tr>
                             </tbody>
@@ -633,18 +639,33 @@
         <div class="container">
             <h2>Premium Supplements</h2>
             <div class="products-container">
+                <!-- Whey Protein 1kg -->
                 <div class="product-card">
                     <div class="product-img">
                         <img src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Whey Protein">
                     </div>
                     <div class="product-body">
-                        <h3>Whey Protein</h3>
+                        <h3>Whey Protein 1kg</h3>
                         <p>High-quality protein to support muscle recovery and growth.</p>
-                        <div class="price">$15</div>
+                        <div class="price">$35</div>
                         <button class="btn">Add to Cart</button>
                     </div>
                 </div>
                 
+                <!-- Whey Protein 2kg -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Whey Protein 2kg">
+                    </div>
+                    <div class="product-body">
+                        <h3>Whey Protein 2kg</h3>
+                        <p>Double the protein for serious muscle building.</p>
+                        <div class="price">$60</div>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- C4 Pre-Workout -->
                 <div class="product-card">
                     <div class="product-img">
                         <img src="https://i.postimg.cc/ZRV80J87/c4.jpg" alt="Pre-Workout">
@@ -652,14 +673,171 @@
                     <div class="product-body">
                         <h3>c4 Pre-Workout Energizer</h3>
                         <p>Boost energy, focus, and performance during workouts.</p>
-                        <div class="price">$10</div>
+                        <div class="price">$60</div>
                         <button class="btn">Add to Cart</button>
                     </div>
                 </div>
                 
+                <!-- Phedracut Fat-Burn -->
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="BCAA Powder">
+                        <img src="https://i.postimg.cc/wvj8qw12/fatburner.jpg" alt="Fat Burner">
+                    </div>
+                    <div class="product-body">
+                        <h3>Phedracut Fat-Burn</h3>
+                        <p>Advanced fat burning formula for weight loss.</p>
+                        <div class="price">$20</div>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Collagen -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://i.postimg.cc/zfDy8W9j/collagen.jpg" alt="Collagen">
+                    </div>
+                    <div class="product-body">
+                        <h3>Collagen</h3>
+                        <p>Supports joint health and skin elasticity.</p>
+                        <div class="price">$30</div>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- HELL FIRE 1kg -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://i.postimg.cc/9Fg8BYQ4/hellfire.jpg" alt="Hell Fire">
+                    </div>
+                    <div class="product-body">
+                        <h3>HELL FIRE 1kg</h3>
+                        <p>Intense pre-workout formula for extreme energy.</p>
+                        <div class="price">$14</div>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- HELL FIRE Pre-Workout -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://i.postimg.cc/9Fg8BYQ4/hellfire.jpg" alt="Hell Fire Pre-Workout">
+                    </div>
+                    <div class="product-body">
+                        <h3>HELL FIRE Pre-Workout</h3>
+                        <p>Powerful pre-workout for maximum performance.</p>
+                        <div class="price">$15</div>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- HELL FIRE 4kg -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://i.postimg.cc/9Fg8BYQ4/hellfire.jpg" alt="Hell Fire 4kg">
+                    </div>
+                    <div class="product-body">
+                        <h3>HELL FIRE 4kg</h3>
+                        <p>Bulk size for serious trainers.</p>
+                        <div class="price">$35</div>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Anabolic 1kg -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://i.postimg.cc/x89V2FBb/anabolic.jpg" alt="Anabolic">
+                    </div>
+                    <div class="product-body">
+                        <h3>Anabolic 1kg</h3>
+                        <p>Muscle building formula for rapid gains.</p>
+                        <div class="price">$18</div>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- AMINO Fast Grow -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://i.postimg.cc/SNzV3N9L/amino.jpg" alt="Amino Acids">
+                    </div>
+                    <div class="product-body">
+                        <h3>AMINO Fast Grow</h3>
+                        <p>Fast-absorbing amino acids for recovery.</p>
+                        <div class="price">$20</div>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Anabolic 4kg -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://i.postimg.cc/x89V2FBb/anabolic.jpg" alt="Anabolic 4kg">
+                    </div>
+                    <div class="product-body">
+                        <h3>Anabolic 4kg</h3>
+                        <p>Bulk muscle building protein.</p>
+                        <div class="price">$60</div>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Anabolic Beast -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://i.postimg.cc/x89V2FBb/anabolic.jpg" alt="Anabolic Beast">
+                    </div>
+                    <div class="product-body">
+                        <h3>Anabolic Beast</h3>
+                        <p>Extreme muscle building formula.</p>
+                        <div class="price">$35</div>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Testo Beast 300mg -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://i.postimg.cc/ZKkmn2mW/testo.jpg" alt="Testo Beast">
+                    </div>
+                    <div class="product-body">
+                        <h3>Testo Beast 300mg</h3>
+                        <p>Testosterone support supplement.</p>
+                        <div class="price">$15</div>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- HERBALIFE -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://i.postimg.cc/mk8dDSNt/herbalife.jpg" alt="Herbalife">
+                    </div>
+                    <div class="product-body">
+                        <h3>HERBALIFE</h3>
+                        <p>Nutritional meal replacement shakes.</p>
+                        <div class="price">$30</div>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Testo GH -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://i.postimg.cc/ZKkmn2mW/testo.jpg" alt="Testo GH">
+                    </div>
+                    <div class="product-body">
+                        <h3>Testo GH</h3>
+                        <p>Growth hormone support supplement.</p>
+                        <div class="price">$25</div>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- BCAA Powder -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://i.postimg.cc/SNzV3N9L/amino.jpg" alt="BCAA Powder">
                     </div>
                     <div class="product-body">
                         <h3>BCAA Powder</h3>
@@ -669,6 +847,7 @@
                     </div>
                 </div>
                 
+                <!-- Creatine 3 in 1 -->
                 <div class="product-card">
                     <div class="product-img">
                         <img src="https://i.postimg.cc/0QcYr9YB/creatine.jpg" alt="Creatine">
@@ -708,7 +887,7 @@
                     <div class="product-body">
                         <h3>Shaker Bottle</h3>
                         <p>High-quality shaker for your protein shakes.</p>
-                        <div class="price">$8</div>
+                        <div class="price">$5</div>
                         <button class="btn">Add to Cart</button>
                     </div>
                 </div>
@@ -727,12 +906,36 @@
                 
                 <div class="product-card">
                     <div class="product-img">
+                        <img src="https://i.postimg.cc/NM3s5Kxf/womens-gloves.jpg" alt="Female Gym Gloves">
+                    </div>
+                    <div class="product-body">
+                        <h3>Female Gym Gloves</h3>
+                        <p>Designed for women's hands with excellent grip and protection.</p>
+                        <div class="price">$8</div>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://i.postimg.cc/6QRCj00r/leather-gloves.jpg" alt="Leather Gym Gloves">
+                    </div>
+                    <div class="product-body">
+                        <h3>Leather Gym Gloves</h3>
+                        <p>Premium leather gloves for maximum durability and grip.</p>
+                        <div class="price">$15</div>
+                        <button class="btn">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img">
                         <img src="https://i.postimg.cc/VvvjC2g2/gloves.jpg" alt="Gym Gloves">
                     </div>
                     <div class="product-body">
-                        <h3>Gym Gloves</h3>
-                        <p>Hand Protection, grip effective.</p>
-                        <div class="price">$5</div>
+                        <h3>Standard Gym Gloves</h3>
+                        <p>Basic gloves with good grip and hand protection.</p>
+                        <div class="price">$12</div>
                         <button class="btn">Add to Cart</button>
                     </div>
                 </div>
